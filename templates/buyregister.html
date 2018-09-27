@@ -1,0 +1,70 @@
+{% extends 'index.html'%}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'css/info-message.css' %}"/>
+    {% endblock %}
+</head>
+<body>
+
+{#    <script>#}
+{#        $.ajaxSetup({#}
+{#            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },#}
+{#        });#}
+{#    </script>#}
+{% block sub-banner %}{% endblock %}
+{% block main %}
+    <div id="main" style="padding-bottom:100px;" class="container">
+        <div class="contain">
+{#            <div class="form">#}
+
+            <form action="{% url 'buyinfo' %}" method="post" class="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div id="ff">
+                    <p>
+                        <b>姓名:</b>
+                        <input type="text" name='realname' id="realname" placeholder="请输入姓名">
+                    </p>
+                    <p>
+                        <b>身份证号:</b>
+                        <input type="text" name='identity' id="identity" placeholder="请输入身份证号">
+                    </p>
+                    <p>
+                        <b>住址:</b>
+                        <input type="text" name="address" id="address" placeholder="请输入卖车地址">
+                    </p>
+                    <p>
+                        <b>手机号:</b>
+                        <input type="text" name="phone" id="uphone" placeholder="请输入手机号">
+                    </p>
+
+                    <em>
+                        <b>性别</b>
+                        <input type="radio" name="gender" value="0" checked>男
+                        <input type="radio" name="gender" value="1">女
+                    </em>
+                </div>
+                <p>
+                    <button class="next bb" type="submit">提交</button>
+                </p>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+{% block js %}
+    <script src="{% static 'js/jquery-3.2.0.js' %}"></script>
+    <script src="{% static 'js/header.js' %}"></script>
+    <script src="{% static 'js/footer.js' %}"></script>
+    <script src="{% static 'js/info-message.js' %}"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script>
+        var phone = $.cookie('phone_cookie');
+        $('#uphone').val(phone)
+    </script>
+    {% endblock %}
+</body>
+</html>

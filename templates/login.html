@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+</head>
+<body>
+    <div id="login">
+        <img src="{% static 'img/carlo-d-agnolo-379969-unsplash.jpg' %}" alt=""/>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <p>
+                <b>用户登录</b>
+            </p>
+            <p>
+                用户名：<input type="text" name="username" placeholder="请输入用户名"/>{{ message }}
+            </p>
+            <p>
+                密码：<input type="password" name="password" placeholder="请输入密码"/>{{ message }}
+            </p>
+            <p>
+                <button class="button-login" name="loginin" type="submit">登录</button>
+                <button class="button-regist" name="toregist" type="button">注册</button>
+            </p>
+        </form>
+    </div>
+    <script src="{% static 'js/jquery-3.2.0.js' %}"></script>
+    <script src="{% static 'js/header.js' %}"></script>
+    <script>
+        {% comment %}
+        $(".button-regist").on("click", function () {
+            $(location).attr("href", "{% url 'register' %}")
+        })
+        {% endcomment %}
+    </script>
+</body>
+</html>

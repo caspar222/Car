@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% load static %}
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title></title>
+
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+</head>
+<body>
+<div id="login">
+    <img src="{% static 'img/timg.jfif' %}" alt=""/>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <p>
+            <b>用户注册</b>  <b class="prompt">注册失败！</b>
+        </p>
+        <p>
+            用户名：<input type="text" name="username" id="username" placeholder="请输入用户名"/>{{ message }}
+        </p>
+        <p>
+            密码：<input type="password" name="userpwd" id="userpwd" placeholder="请输入密码"/>{{ message }}
+        </p>
+        <p>
+            确认密码：<input type="password" name="reuserpwd" id="reuserpwd" placeholder="请确认密码"/>
+        </p>
+        <p class="register-button">
+            <button class="toLogin" name='tologin' style="margin-right:180px;" type="button">直接登录</button>
+            <button class="buy" name='tobuy' style="margin-right:90px;" type="submit">我要买车</button>
+            <button class="sell" name='tosale' id="tosale" type="submit">我要卖车</button>
+        </p>
+    </form>
+
+</div>
+<script src="{% static 'js/jquery-3.2.0.js' %}"></script>
+<script src="{% static 'js/header.js' %}"></script>
+<script src="{% static 'js/jquery.cookie.js' %}"></script>
+<script>
+    $(".toLogin").on("click", function () {
+        $(location).attr("href", "{% url 'login' %}")
+    })
+
+
+</script>
+</body>
+</html>

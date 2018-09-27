@@ -1,0 +1,47 @@
+#footer{
+    position:relative;
+}
+
+#footer .footer-logo{
+    float:left;
+    padding:30px 20px;
+}
+
+#footer .footer-logo img{
+    height:80px;
+}
+
+#footer .footer-ul{
+    float:left;
+    width:600px;
+    margin:0 20px;
+    /*弹性布局*/
+    display:flex;
+    /*内容等距排列*/
+    justify-content:space-between;
+}
+
+#footer .footer-img{
+    float:left;
+    margin-left:80px;
+}
+#footer .footer-img p{
+    margin-top:20px;
+}
+
+#footer .footer-footer{
+    clear:both;
+    text-align:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+

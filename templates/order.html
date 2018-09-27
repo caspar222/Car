@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'css/order.css' %}"/>
+    {% endblock %}
+</head>
+<body>
+    {% block sub-banner %}{% endblock %}
+    {% block main %}
+    <div id="main" class="container">
+        <div class="contain">
+            <div style="display:block">
+                <ul>
+                    <br><br>
+                    <li>
+                        <span>
+                            <i>状态：<span>未支付</span></i>
+                        </span>
+                        <p>
+                            <img src="{% static car.picture%}"/>
+                            <em>
+                                <b>{{ car.brand }}</b><br/>
+                                <span>价格：<strong>{{ car.price }}</strong>万</span><br/>
+                                <span>行驶里程：{{ car.mileage }}公里/万</span><br/>
+                                <span>新车报价：<strong>{{ car.newprice }}</strong>万</span>
+                            </em>
+                            <small>
+                                <a href="{% url 'delcart' %}?carid={{ car.car_id }}"><button class="closeOrder">取消订单</button><br/></a>
+                                <a href="{% url 'confirmbuy' %}?carid={{ car.car_id }}"><button class="resetOrder">确认购买</button></a>
+                            </small>
+                                </p>
+                            </li>
+                    <br><br>
+                        </ul>
+                    </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static 'js/jquery-3.2.0.js' %}"></script>
+    <script src="{% static 'js/footer.js' %}"></script>
+    <script src="{% static 'js/header.js' %}"></script>
+    {% endblock %}
+    <script>
+        $(function(){
+            $(".right").on("click","li",function(){
+                var index=$(this).index();
+                $(".info-detail").children(":eq(${index})").show().siblings().hide();
+            })
+        })
+    </script>
+</body>
+</html>

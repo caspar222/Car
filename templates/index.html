@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" href="{% static 'css/banner.css' %}">
+  {% block style %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  {% endblock %}
+
+  {% block js %}
+  {% endblock %}
+
+</head>
+<body>
+  <!-- 网页顶部 -->
+  <div id="header" class="container">
+    <!--logo-->
+    <a href="{% url 'index' %}">
+      <img src="{% static 'img/logo1.png' %}">
+    </a>
+    <!-- 卖车，买车，服务保障，个人中心　：　列表 -->
+    <ul>
+      <li>
+        <a href="#">卖车</a>
+      </li>
+      <li>
+        <a href="#">买车</a>
+      </li>
+      <li>
+        <a href="#">服务保障</a>
+      </li>
+      <li>
+        <a href="#">个人中心</a>
+      </li>
+    </ul>
+    <!-- 登录信息　&　联系电话 -->
+    <p>
+      {% if request.user.username %}
+        欢迎您：{{ request.user.username }}
+        <a href="{% url 'logout' %}">退出</a>
+      {% else %}
+        <a href="{% url 'login' %}">
+          <img src="{% static 'img/user.png' %}"> 登录
+        </a>
+      {% endif %}
+      <b>
+        <img src="{% static 'img/phone.png' %}">
+        400-400-400
+      </b>
+    </p>
+  </div>
+  <!-- 网页主体内容 -->
+  <div id="main" class="container">
+  {% block main %}
+    <!-- 1.banner广告 -->
+    <div class="sub-banner">
+      <!-- 图片区域 -->
+      <ul class="sub-img">
+        <li>
+          <a href="#">
+            <img src="{% static 'img/banner/001.jpg' %}">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="{% static 'img/banner/002.jpg' %}">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="{% static 'img/banner/003.jpg' %}">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="{% static 'img/banner/004.jpg' %}">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="{% static 'img/banner/001.jpg' %}">
+          </a>
+        </li>
+      </ul>
+      <!-- 导航区域 -->
+      <ul class="sub-case">
+        <li class="sub-active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+    </div>
+    <!-- 2.我要买车(左)　& 我要卖车(右)-->
+    {% block f1 %}
+    <div class="f1 container clear">
+      <!-- 左：我要买车 -->
+      <div class="f1-left left">
+        <b>
+          <a href="#">我要买车</a>
+        </b>
+        <!-- 品牌列表 -->
+        <ul class="clear">
+          {% for brand in brand_list %}
+          <li>
+            <a href="{% url 'brandlist' %}?brand={{ brand.btitle }}">
+              <img src="{% static 'img/car.png' %}">
+              {{ brand.btitle }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        <!-- 价格区间 -->
+        <ul>
+          <li>
+            <a href="{% url 'price0_10' %}?brand=None">
+              <img src="{% static 'img/anquan.png' %}" alt="">
+              0-10W
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'price10_30' %}?brand=None">
+              <img src="{% static 'img/anquan.png' %}" alt="">
+              10-30W
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'price30_80' %}?brand=None">
+              <img src="{% static 'img/anquan.png' %}" alt="">
+              30-80W
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'price80_' %}?brand=None">
+              <img src="{% static 'img/anquan.png' %}" alt="">
+              80W+
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 右：我要卖车　-->
+      <div class="f1-right left">
+        <b><a href="#">我要卖车</a></b>
+        <div>
+          手机号：<input type="text" name="phone" placeholder="请输入手机号">
+          <p>
+            <a href="#">
+              <input type="checkbox" checked name="checked">我已阅读协议
+            </a>
+            <a href="#" id="regist">
+              我要卖车并注册
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+    <!-- 3.热卖车型　-->
+    {% block f2 %}
+    <div class="f2 container">
+      <p>
+        <a href="">
+          <b>热卖车型</b>
+        </a>
+      </p>
+      <div>
+        <!-- 服务器端循环 -->
+        <!-- 热卖车型1 -->
+        {% for car in car_five %}
+        <div>
+          <img src="{% static car.picture %}">
+          <p>
+            <span>
+              {{ car.serbran }}　{{ car.ctitle }}　
+              <i>{{ car.mileage }}</i>公里/万
+            </span>
+            <br>
+            <em><span>{{ car.price }}</span>万元</em>
+            <a href="/sale/detail/?carid={{ car.id }}">查看</a>
+            <s>新车指导价:{{ car.newprice }}万</s>
+          </p>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+    {% endblock %}
+    <!-- 4.图片列表（里程，视野，．．．）-->
+    {% block f3 %}
+    <div class="f3 container">
+      <div class="f3-1">
+        <img src="{% static 'img/1-1-t.jpg' %}">
+      </div>
+      <div class="f3-2">
+        <img src="{% static 'img/1-3-t.jpg' %}">
+        <b>里程</b>
+      </div>
+      <div class="f3-3">
+        <img src="{% static 'img/5a6eadef7fa2a.jpg' %}">
+        <b>视野</b>
+      </div>
+      <div class="f3-4">
+        <img src="{% static 'img/5a6eae33d64d0.jpg' %}">
+        <b>舒适</b>
+      </div>
+      <div class="f3-5">
+        <img src="{% static 'img/5a6eae133db71.jpg' %}">
+      </div>
+    </div>
+    {% endblock %}
+  {% endblock %}
+  </div>
+  <!-- 网页底部 -->
+  <div id="footer" class="container">
+    <hr>
+    <!-- logo -->
+    <div class="footer-logo">
+      <a href="{% url 'index' %}">
+        <img src="{% static 'img/logo1.png' %}">
+      </a>
+    </div>
+    <!-- 4个列表 -->
+    <div class="footer-ul">
+      <!-- 列表1 -->
+      <ul>
+        <li>
+          <a href="#">
+            <b>关于易车网</b>
+          </a>
+        </li>
+        <li> <hr> </li>
+        <li><a href="#">帮助中心</a></li>
+        <li><a href="#">诚聘英才</a></li>
+        <li><a href="#">法律声明</a></li>
+      </ul>
+      <!-- 列表2 -->
+      <ul>
+        <li>
+          <a href="#">
+            <b>买家中心</b>
+          </a>
+        </li>
+        <li> <hr> </li>
+        <li><a href="#">在线答疑</a></li>
+        <li><a href="#">服务保障</a></li>
+        <li><a href="#">法律声明</a></li>
+      </ul>
+      <!-- 列表3 -->
+      <ul>
+        <li>
+          <a href="#">
+            <b>卖家中心</b>
+          </a>
+        </li>
+        <li> <hr> </li>
+        <li><a href="#">帮助中心</a></li>
+        <li><a href="#">诚聘英才</a></li>
+        <li><a href="#">法律声明</a></li>
+      </ul>
+      <!-- 列表4 -->
+      <ul>
+        <li>
+          <a href="#">
+            <b>有话要说</b>
+          </a>
+        </li>
+        <li> <hr> </li>
+        <li><a href="#">帮助中心</a></li>
+        <li><a href="#">诚聘英才</a></li>
+        <li><a href="#">法律声明</a></li>
+      </ul>
+    </div>
+    <!-- 2幅图 -->
+    <div class="footer-img">
+      <p>
+        <img src="{% static 'img/android.png' %}" alt="">
+      </p>
+      <p>
+        <img src="{% static 'img/ios.png' %}" alt="">
+      </p>
+    </div>
+    <!-- 底部内容 -->
+    <div class="footer-footer">
+      <p>达内时代科技集团有限公司　版权所有</p>
+      <p>
+        <span>友情链接：</span>
+        <a href="#">达内时代科技</a>
+        <a href="#">PYTHON</a>
+        <a href="#">WEB前端</a>
+        <a href="#">U3D</a>
+        <a href="#">JAVA</a>
+        <a href="#">C++</a>
+        <a href="#">Android</a>
+        <a href="#">IOS</a>
+        <a href="#">UID设计</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+#main .contain {
+  width: 650px;
+  margin: 0 auto;
+}
+#main .contain > p {
+  margin-left: 330px;
+  margin-top: 30px;
+}
+.bb {
+  width: 80px;
+  height: 40px;
+  border-radius: 20%;
+  outline: inherit;
+  border: 2px dashed #FF6600;
+  font-size: 1em;
+  font-weight: 500;
+  margin-right: 20px;
+}
+#main .progress {
+  position: relative;
+}
+#main ul.point > li {
+  list-style: none;
+  display: inline-block;
+  margin: 30px;
+  position: relative;
+  z-index: 10;
+}
+#main ul.point > li > b {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #DEDCD8;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+}
+#main ul.point > li:first-child > b {
+  background-color: #FF8F03;
+}
+#main ul.pre {
+  position: absolute;
+  top: 65px;
+  left: 60px;
+  z-index: 1;
+}
+#main ul.pre > li {
+  display: inline-block;
+  width: 125px;
+  height: 10px;
+  background-color: #C6C6C6;
+}
+#main .form {
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 50px;
+  font-size: 1.2em;
+}
+#main .form div {
+  display: none;
+}
+#main #ff{
+  display: block;
+}
+#main .form p {
+  margin: 30px 0;
+  width: 350px;
+}
+
+#main .form p input {
+  float: right;
+  height: 25px;
+  width: 190px;
+}
+#main .form em {
+  display: inline-block;
+  margin: 10px 0;
+  width: 350px;
+}
+#main .form select {
+  width: 190px;
+  height: 30px;
+  float: right;
+}
+#main .form textarea {
+  font-size: 1em;
+}

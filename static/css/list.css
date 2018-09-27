@@ -1,0 +1,89 @@
+.f1,.f2{
+    margin:20px 0;
+    padding:20px;
+}
+
+.f1 b a,.f2 b a{
+    font-size:20px;
+}
+
+ul.brand,ul.price{
+    margin-left:50px;
+}
+ul.brand li,ul.price li{
+    float:left;
+    margin-left:20px;
+}
+ul.brand li img,ul.price li img{
+    width:32px;
+    height:32px;
+}
+ul.price{
+    margin-top:15px;
+}
+
+.f2 ul{
+    margin-top:20px;
+    padding:20px;
+    /*将ul的布局方式更改为弹性布局，ul的子元素们就按照弹性布局的方式进行排列*/
+    display:flex;
+    /*设置ul的子元素们横向排列的间距相等*/
+    /*justify-content:space-between;*/
+    /*设置ul的子元素们如果一行显示不下的话则自动换行*/
+    flex-wrap:wrap;
+}
+
+.f2 ul li{
+    width:280px;
+    border:1px solid #e6e6e6;
+    border-radius:5px;
+    box-sizing:border-box;
+    padding:10px;
+    margin:8px 8px;
+}
+.f2 ul li img{
+    width:258px;
+    height:165px;
+}
+.f2 ul li div p{
+    margin-top:10px;
+}
+.f2 ul li div p i{
+    margin-left:50px;
+    color:#3a50ad;
+}
+.f2 ul li div p:not(:first-child){
+    text-align:center;
+}
+
+.f2 ul li div p em{
+    font-size:24px;
+}
+
+.f2 ul li div p:nth-child(2) span{
+    color:red;
+}
+
+.f2 ul li div p:nth-child(2){
+    line-height:41px;
+}
+
+.f2 ul li div p:nth-child(2) a{
+    font-size:18px;
+    border:2px dashed #f60;
+    border-radius:5px;
+    padding:5px 10px;
+    margin-left:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

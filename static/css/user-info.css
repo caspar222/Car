@@ -1,0 +1,222 @@
+#main .contain {
+  width: 1200px;
+  margin: 0 auto;
+}
+#main .left {
+  width: 20%;
+  display: inline-block;
+}
+#main .left p {
+  padding-top: 20px;
+  text-align: center;
+}
+#main .left p img {
+  width: 150px;
+  height: 150px;
+}
+#main .left div {
+  padding-top: 20px;
+  text-align: center;
+}
+#main .left div p {
+  margin: 10px auto;
+  width: 200px;
+  height: 190px;
+  border: 1px solid gray;
+  padding: 1px;
+}
+#main .left div p img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#main .right {
+  width: 78%;
+  display: inline-block;
+  position: relative;
+  padding-top: 20px;
+}
+#main .right > ul li {
+  float: left;
+  width: 120px;
+  height: 50px;
+  border: 2px dashed #f60;
+  border-radius: 20%;
+  text-align: center;
+  line-height: 50px;
+  display: inline-block;
+  margin-left: 3px;
+  font-weight: bold;
+}
+#main .right > ul li:hover {
+  border: 2px dashed #36C4DE;
+}
+#main .right .info-detail div:first-child,
+#main .right .info-detail div:nth-child(3) {
+  width: 90%;
+  position: absolute;
+  top: 80px;
+}
+#main .right .info-detail div:first-child ul li,
+#main .right .info-detail div:nth-child(3) ul li {
+  width: 100%;
+  border: 1px solid #C6C6C6;
+  border-radius: 5px;
+  padding: 10px 5px;
+}
+#main .right .info-detail div:first-child ul li span i,
+#main .right .info-detail div:nth-child(3) ul li span i {
+  float: right;
+}
+#main .right .info-detail div:first-child ul li span i span,
+#main .right .info-detail div:nth-child(3) ul li span i span {
+  color: #FF8F03;
+}
+#main .right .info-detail div:first-child ul li p,
+#main .right .info-detail div:nth-child(3) ul li form {
+  margin-top: 10px;
+  position: relative;
+}
+#main .right .info-detail div:first-child ul li p img,
+#main .right .info-detail div:nth-child(3) ul li form img {
+  width: 190px;
+  height: 150px;
+  border-radius: 5px;
+}
+#main .right .info-detail div:first-child ul li p em,
+#main .right .info-detail div:nth-child(3) ul li form em {
+  position: absolute;
+  left: 220px;
+  top: 10px;
+}
+#main .right .info-detail div:first-child ul li p em span,
+#main .right .info-detail div:nth-child(3) ul li form em span {
+  display: inline-block;
+  margin-top: 10px;
+}
+#main .right .info-detail div:nth-child(3) ul li form em span .alterprice{
+  width:40px;
+}
+#main .right .info-detail div:first-child ul li p em strong,
+#main .right .info-detail div:nth-child(3) ul li form em strong {
+  color: red;
+}
+#main .right .info-detail div:first-child ul li p small,
+#main .right .info-detail div:nth-child(3) ul li small {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#main .right .info-detail div:first-child ul li p small button,
+#main .right .info-detail div:nth-child(3) ul li small button {
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 20px;
+  border: inherit;
+  color: #fff;
+  font-weight: bold;
+}
+#main .right .info-detail div:first-child ul li p small .closeOrder,
+#main .right .info-detail div:nth-child(3) ul li small .closeOrder {
+  background-color: #FF4E54;
+}
+#main .right .info-detail div:first-child ul li span a{
+  display: inline-block;
+  border: 2px dashed #FF6600;
+  padding: 0px 20px;
+  border-radius: 3px;
+  position: absolute;
+  /*top: 50px;*/
+  left: 350px;
+    margin-left: 290px;
+}
+#main .right .info-detail div:first-child ul li p small .resetOrder,
+#main .right .info-detail div:nth-child(3) ul li small .resetOrder {
+  background-color: #78C64E;
+}
+#main .right .info-detail div:nth-child(2) {
+  width: 90%;
+  position: absolute;
+  top: 80px;
+}
+#main .right .info-detail div:nth-child(2) > ul {
+  width: 100%;
+}
+#main .right .info-detail div:nth-child(2) > ul > li {
+  margin-top: 5px;
+  position: relative;
+  padding: 10px;
+  border: 1px solid #C6C6C6;
+  border-radius: 5px;
+}
+#main .right .info-detail div:nth-child(2) > ul > li p img {
+  width: 30px;
+  height: 30px;
+}
+#main .right .info-detail div:nth-child(2) > ul > li p i {
+  float: right;
+}
+#main .right .info-detail div:nth-child(2) > ul > li ul {
+  padding-left: 100px;
+  box-sizing: border-box;
+}
+#main .right .info-detail div:nth-child(2) > ul > li ul li {
+  padding: 3px;
+}
+#main .right .info-detail div:nth-child(2) > ul > li ul li img {
+  width: 30px;
+  height: 30px;
+}
+#main .right .info-detail div:nth-child(2) > ul > li ul li .sp{
+  margin-left: 20px;
+  color: #079A35;
+}
+#main .right .info-detail div:nth-child(2) > ul > li ul li .sp img {
+  width: 10px;
+  height: 10px;
+}
+#main .right .info-detail div:nth-child(2) > ul > li ul li strong {
+  margin-left: 20px;
+  color: #FE0000;
+}
+#main .right .info-detail div:nth-child(2) > ul > li ul li strong img {
+  width: 10px;
+  height: 10px;
+}
+#main .right .info-detail div:nth-child(2) > ul > li ul li em {
+  color: red;
+}
+#main .right .info-detail div:last-child {
+  width: 90%;
+  position: absolute;
+  top: 80px;
+}
+#main .right .info-detail div:last-child ul {
+  border: 1px solid #C6C6C6;
+  border-radius: 5px;
+  padding: 0 20px;
+}
+#main .right .info-detail div:last-child ul li {
+  position: relative;
+  height: 100px;
+  padding: 0 20px;
+  border-bottom: 1px dashed #C6C6C6;
+}
+#main .right .info-detail div:last-child ul li img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 30px;
+}
+#main .right .info-detail div:last-child ul li b {
+  position: absolute;
+  top: 30px;
+  left: 100px;
+}
+#main .right .info-detail div:last-child ul li em {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+

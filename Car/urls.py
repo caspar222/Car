@@ -1,0 +1,31 @@
+"""Car URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/1.11/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.conf.urls import url, include
+    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+"""
+from django.conf.urls import url, include
+from django.contrib import admin
+
+from sale import views
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    # 配置首页的访问路径
+    url(r'^$',views.index,name='index'),
+    # 当访问路径是　/userinfo/***　交给　userinfo.urls
+    url(r'^user/',include('userinfo.urls')),
+    # 当访问路径是　/buy/***　交给　buy.urls
+    url(r'^buy/',include('buy.urls')),
+    # 当访问路径是　/sale/*** 交给　sale.urls
+    url(r'^sale/',include('sale.urls')),
+]

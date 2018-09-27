@@ -1,0 +1,75 @@
+#main .contain {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#main .contain div:first-child ul li,
+#main .contain div:nth-child(3) ul li {
+  width: 100%;
+  border: 1px solid #C6C6C6;
+  border-radius: 5px;
+  padding: 10px 5px;
+}
+#main .contain div:first-child ul li span i,
+#main .right .info-detail div:nth-child(3) ul li span i {
+  float: right;
+}
+#main .contain div:first-child ul li span i span,
+#main .right .info-detail div:nth-child(3) ul li span i span {
+  color: #FF8F03;
+}
+#main .contain div:first-child ul li p,
+#main .right .info-detail div:nth-child(3) ul li p {
+  margin-top: 10px;
+  position: relative;
+}
+#main .contain div:first-child ul li p img,
+#main .contain div:nth-child(3) ul li p img {
+  width: 220px;
+  height: 220px;
+  border-radius: 5px;
+}
+#main .contain div:first-child ul li p em {
+    position: absolute;
+  left: 250px;
+  top: 20px;
+}
+#main .contain div:first-child ul li p em span,
+#main .contain div:nth-child(3) ul li p em span {
+  display: inline-block;
+  margin-top: 10px;
+}
+#main .contain div:first-child ul li p em strong,
+#main .contain div:nth-child(3) ul li p em strong {
+  color: red;
+}
+#main .contain div:first-child ul li p small,
+#main .contain div:nth-child(3) ul li p small {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#main .contain div:first-child ul li p small button,
+#main .contain div:nth-child(3) ul li p small button {
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 5px;
+  border: inherit;
+  color: #fff;
+  font-weight: bold;
+}
+#main .contain div:first-child ul li p small .closeOrder,
+#main .contain div:nth-child(3) ul li p small .closeOrder {
+  background-color: #FF4E54;
+}
+#main .contain div:first-child ul li p small .resetOrder,
+#main .contain div:nth-child(3) ul li p small .resetOrder {
+  background-color: #78C64E;
+}
+
+
+
+
+

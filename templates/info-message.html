@@ -1,0 +1,172 @@
+{% extends 'index.html'%}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/info-message.css' %}"/>
+    {% endblock %}
+</head>
+<body>
+
+{#    <script>#}
+{#        $.ajaxSetup({#}
+{#            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },#}
+{#        });#}
+{#    </script>#}
+{% block sub-banner %}{% endblock %}
+{% block main %}
+    <div id="main" style="padding-bottom:100px;" class="container">
+        <div class="contain">
+            <div class="progress">
+                <!--文字提示和圆点-->
+                <ul class="point">
+                    <li>
+                        个人信息
+                        <b></b>
+                    </li>
+                    <li>
+                        车辆信息
+                        <b></b>
+                    </li>
+                    <li>
+                        卖车信息
+                        <b></b>
+                    </li>
+                    <li>
+                        合同确认
+                        <b></b>
+                    </li>
+                    <li>
+                        发布成功
+                        <b></b>
+                    </li>
+                </ul>
+                <!--横杠-->
+                <ul class="pre">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+{#            <div class="form">#}
+
+            <form action="{% url 'infomes' %}" method="post" class="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div id="ff">
+                    <p>
+                        <b>姓名:</b>
+                        <input type="text" name='realname' id="realname" placeholder="请输入姓名">
+                    </p>
+                    <p>
+                        <b>身份证号:</b>
+                        <input type="text" name='identity' id="identity" placeholder="请输入身份证号">
+                    </p>
+                    <p>
+                        <b>住址:</b>
+                        <input type="text" name="address" id="address" placeholder="请输入卖车地址">
+                    </p>
+                    <p>
+                        <b>手机号:</b>
+                        <input type="text" name="phone" id="uphone" placeholder="请输入手机号">
+                    </p>
+
+                    <em>
+                        <b>性别</b>
+                        <input type="radio" name="gender" value="0" checked>男
+                        <input type="radio" name="gender" value="1">女
+                    </em>
+                </div>
+                <div>
+                    <p>
+                        <b>车辆品牌</b>
+                        <select name="brands" id="brands">
+                            <option value="奔驰">奔驰</option>
+                            <option value="宝马">宝马</option>
+                            <option value="奥迪">奥迪</option>
+                            <option value="别克">别克</option>
+                            <option value="大众">大众</option>
+                        </select>
+                    </p>
+                    <p>
+                        <b>车辆型号</b>
+                        <input type="text" name="model" id="model">
+                    </p>
+                    <p>
+                        <b>车辆上牌日期:</b>
+                        <input type="text" name="regist_date" id="regist_date"/>
+                    </p>
+                    <p>
+                        <b>车辆发动机号码:</b>
+                        <input type="text" name="engineNo" id="engineNo"/>
+                    </p>
+                    <p>
+                        <b>行驶公里数:</b>
+                        <input type="text" name="mileage" id="mileage">
+                    </p>
+                    <em>
+                        <b>是否有维修记录</b>
+                        <input type="radio" name="isService" value="true"/>是
+                        <input type="radio" checked name="isService" value="false"/>否
+                    </em>
+                </div>
+                <div>
+                    <p>
+                        <b>期望售价</b>
+                        <input type="text" name="price" id="price"/>(万元)
+                    </p>
+                    <p>
+                        <b>新车价格</b>
+                        <input type="text" name="newprice" id="newprice"/>(万元)
+                    </p>
+                    <p>
+                        <b>上传车辆照片</b>
+                        <input type="file" name="pic" id="pic" />
+                    </p>
+                    <em>
+                        <b>是否手续齐全</b>
+                        <input type="radio" checked name="formalities" value="true" />是
+                        <input type="radio" name="formalities" value="false"/>否
+                    </em>
+                    <em>
+                        <b>是否有债务</b>
+                        <input type="radio" name="isDebt" value="ture"/>是
+                        <input type="radio" name="isDebt" checked value="false" checked/>否
+                    </em>
+                </div>
+                <div>
+                    <b>卖家承诺:</b>
+                    <textarea name="promise" id="promise" cols="50" rows="10"></textarea>
+                </div>
+                <div>
+                    <p><b>已成功发布卖车信息，请等待审核</b></p>
+                </div>
+{#                </div>#}
+                <p >
+                    <button  class="prev bb" disabled type="button">上一步</button>
+                    <button class="next bb" type="button">下一步</button>
+                </p>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+{% block js %}
+    <script src="{% static 'js/jquery-3.2.0.js' %}"></script>
+    <script src="{% static 'js/header.js' %}"></script>
+    <script src="{% static 'js/footer.js' %}"></script>
+    <script src="{% static 'js/info-message.js' %}"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script>
+        var phone = $.cookie('phone_cookie');
+        $('#uphone').val(phone)
+    </script>
+    {% endblock %}
+</body>
+</html>

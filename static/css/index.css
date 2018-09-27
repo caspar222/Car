@@ -1,0 +1,217 @@
+div.f1 div.f1-left{
+    margin-top:20px;
+    width:640px;
+    box-sizing:border-box;
+    border-right:1px solid gray;
+    height:220px;
+    padding:20px;
+}
+div.f1 div.f1-left b,div.f1 div.f1-right b{
+    padding:10px;
+    font-size:20px;
+    border-bottom:2px dashed #f60;
+}
+
+div.f1 div.f1-left ul{
+    padding-top:20px;
+    width:80%;
+    margin:0 auto;
+}
+
+div.f1 div.f1-left ul li{
+    float:left;
+    margin-left:10px;
+}
+
+div.f1 div.f1-left ul li img{
+    width:32px;
+    height:32px;
+}
+
+/*我要卖车　f1-right*/
+.f1 .f1-right{
+    width:600px;
+    box-sizing:border-box;
+    padding:20px;
+    margin-top:20px;
+}
+
+.f1 .f1-right div{
+    padding-top:20px;
+    width:80%;
+    margin:0 auto;
+}
+
+.f1 .f1-right div > input{
+    width:230px;
+    height:30px;
+    font-size:1em;
+    margin-top:20px;
+}
+
+.f1 .f1-right div p{
+   padding:20px 0;
+}
+
+.f1 .f1-right #regist{
+    font-style:italic;
+    font-weight:bold;
+    display:inline-block;
+    border:2px dashed #f60;
+    padding:10px 20px;
+    margin-left:20px;
+}
+
+/*热卖车型　.f2 container */
+.f2{
+    box-sizing:border-box;
+    padding-top:20px;
+}
+
+.f2 b{
+    margin:20px;
+    padding:10px;
+    font-size:20px;
+    border-bottom:2px dashed #f60;
+}
+
+.f2>div{
+    /*弹性布局*/
+    display:flex;
+    /*横向内容排列方式为等距排列*/
+    justify-content: space-between;
+    /*当一行显示不下的时候换行显示*/
+    flex-wrap:wrap;
+    padding:20px 40px;
+}
+.f2 div img{
+    width:200px;
+    height:200px;
+}
+.f2 div > div{
+    border:1px solid #e6e6e6;
+    padding:5px;
+    width:220px;
+}
+.f2 div p i{
+    color:#3a50ad;
+}
+.f2 div p em span{
+    color:red;
+    font-size:24px;
+}
+.f2 div p a{
+    display:inline-block;
+    vertical-align:middle;
+    border:2px dashed #f60;
+    border-radius:3px;
+    padding:5px 10px;
+    margin-left:15px;
+    margin-top:5px;
+}
+.f2 div p s{
+    display:block;
+}
+.f2 div p {
+    text-align:center;
+}
+
+.f3{
+    height:500px;
+    overflow:hidden;
+    padding-top:30px;
+    position:relative;
+}
+.f3 div{
+    border:1px solid gray;
+    padding:2px;
+}
+
+.f3 .f3-1{
+    width:200px;
+    height:400px;
+    position:absolute;
+    left:60px;
+}
+.f3 .f3-1 img{
+    width:100%;
+    height:100%;
+}
+
+.f3 .f3-2{
+    width:220px;
+    height:400px;
+    position:absolute;
+    left:300px;
+}
+
+.f3 .f3-2 img{
+    width:80%;
+    height:70%;
+    display:block;
+    margin:0 auto;
+}
+.f3 .f3-2 b{
+    font-size:40px;
+    position:absolute;
+    bottom:40px;
+    left:73px;
+}
+
+.f3 .f3-3{
+    width:400px;
+    height:180px;
+    position:absolute;
+    left:560px;
+}
+.f3 .f3-3 img{
+    widwth:220px;
+    height:150px;
+    position:absolute;
+    top:20px;
+    left:30px;
+}
+
+.f3 .f3-3 b{
+    position:absolute;
+    font-size:40px;
+    top:63px;
+    right:30px;
+}
+
+.f3 .f3-4{
+    width:400px;
+    height:180px;
+    position:absolute;
+    top:240px;
+    left:560px;
+}
+.f3 .f3-4 img{
+    widwth:220px;
+    height:150px;
+    position:absolute;
+    top:20px;
+    right:30px;
+}
+.f3 .f3-4 b{
+    position:absolute;
+    font-size:40px;
+    top:63px;
+    left:30px;
+}
+
+.f3 .f3-5{
+    width:200px;
+    height:400px;
+    position:absolute;
+    right:100px;
+}
+
+.f3 .f3-5 img{
+    width:100%;
+    height:100%;
+}
+
+
+
+

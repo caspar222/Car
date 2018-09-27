@@ -1,0 +1,297 @@
+{% extends 'index.html'%}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    {% block style %}
+      <link rel="stylesheet" href="{% static 'css/user-info.css' %}"/>
+    {% endblock %}
+</head>
+<body>
+    {% block sub-banner %}{% endblock %}
+    {% block main %}
+    <div id="main" class="container">
+        <div class="contain">
+            <div class="left">
+                <p>
+                    <img src="{% static 'img/user1.png' %}" alt=""/>
+                    <br/>
+                    <span>用户：{{ request.user.username }}</span>
+                    <br/>
+                    <span>已登录：100天</span>
+                </p>
+                <div>
+                    <b>最近浏览</b>
+                    {% for rec in orders.rec_view_list %}
+                    <p>
+                        <a href="{{ rec.get_absolute_url }}"><img src="{{ rec.picture }}"/></a>
+                        <span>{{ rec.serbran }}{{ rec.ctitle }}</span>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="right">
+                <ul class="remove">
+                    <li>购买信息</li>
+                    <li>个人信息</li>
+                    <li>卖车信息</li>
+                    <li>消息</li>
+                </ul>
+                <div class="info-detail">
+                    <div style="display:block">
+                        <ul>
+                            {% if orders.orders %}
+                            {% for order in orders.orders %}
+                            <li>
+                            <span>
+                                订单号：{{ order.orderno }}
+                                <i>状态：<span>已支付</span></i>
+                            </span>
+                                <p>
+                                    <img src="{% static order.picture %}"/>
+                                    <em>
+                                        <b>{{ order.brand }}</b>
+                                        <br/>
+                                        <span>价格：<strong>{{ order.price }}</strong>万</span>
+                                        <br/>
+                                        <span>行驶里程：{{ order.mileage }}公里</span>
+                                        <br/>
+                                        <span>新车报价：<strong>{{ order.newprice }}</strong>万</span>
+                                    </em>
+                                </p>
+                            </li>
+                            {% endfor %}
+                            {% else %}
+                                <li>
+                                    您暂无购车信息
+                                    <span>
+                                        <a href="{% url 'buylist' %}">去购买</a>
+                                    </span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div style="display: none">
+                        <ul>
+                            <li>
+                                <p>
+                                    <img src="{% static 'img/user.png' %}" alt=""/>
+                                    <a href=""><b>个人信息</b></a>
+                                    <i class="change">
+                                        <img src="{% static 'img/setting.png' %}" alt=""/>
+                                    </i>
+                                </p>
+                                <form action="" method="post">
+                                {% csrf_token %}
+                                <ul>
+                                    <li>
+                                        姓名：<input type="text" disabled class="modify" name="name" value="{{ orders.user.realname }}">
+                                    </li>
+                                    <li>
+                                        性别：{% if orders.user.sex %}
+                                        <input type="text" disabled name="sex" class="modify" value="女">
+                                        {% else %}
+                                        <input type="text" disabled name="sex" class="modify" value="男">
+                                        {% endif %}
+                                    </li>
+                                    <li>
+                                        联系电话：<input type="text" disabled name="phone" class="modify" value="{{ orders.user.cellphone }}">
+                                        <i><input type="submit" class="modify" value="确认修改" disabled style="display:none"></i>
+                                    </li>
+                                    <li>
+                                        身份证：{{ orders.user.uidentity }}
+                                        <span class="sp">
+                                            <img src="{% static 'img/thumbs.png' %}" />
+                                            已认证
+                                        </span>
+                                        <span></span>
+                                    </li>
+                                    <li>
+                                        微信：1111XXXX
+                                        <span class="sp">
+                                            <img src="{% static 'img/thumbs.png' %}" />
+                                            已认证
+                                        </span>
+                                        <span></span>
+                                    </li>
+                                </ul>
+                                </form>
+                            </li>
+                            <li>
+                                <p>
+                                    <img src="{% static 'img/money.png' %}" alt=""/>
+                                    <b>账户信息</b>
+                                    <i>
+                                        <img src="{% static 'img/setting.png' %}" alt=""/>
+                                    </i>
+                                </p>
+                                <ul>
+                                    <li>
+                                        绑定银行卡：6000 XXXXXXXXXXXX
+                                        <span class="sp">
+                                            <img src="{% static 'img/thumbs.png' %}" />
+                                            已认证
+                                        </span>
+                                    </li>
+                                    <li>
+                                        常用支付方式：<img src="{% static 'img/visa.png' %}"/>
+                                        <span class="sp">
+                                            <img src="{% static 'img/thumbs.png' %}" />
+                                            已认证
+                                        </span>
+                                    </li>
+                                    <li>
+                                        账户余额：<em>100000.00</em>
+                                        <img src="{% static 'img/extract.png' %}"/>
+                                        提取
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>
+                                    <img src="{% static 'img/list.png' %}" alt=""/>
+                                    <b>账户信息</b>
+                                    <i>
+                                        <img src="{% static 'img/setting.png' %}" alt=""/>
+                                    </i>
+                                </p>
+                                <ul>
+                                    <li>
+                                        汽车保险服务：已购买
+                                        <span class="sp">
+                                            <img src="{% static 'img/yes.png' %}" alt=""/>
+                                            已生效
+                                        </span>
+                                    </li>
+                                    <li>
+                                        汽车鉴定服务：已购买
+                                        <span class="sp">
+                                            <img src="{% static 'img/yes.png' %}" alt=""/>
+                                            已生效
+                                        </span>
+                                    </li>
+                                    <li>
+                                        购车服务保障：未购买
+                                        <strong>
+                                            <img src="{% static 'img/no.png' %}" alt=""/>
+                                            未生效
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="display: none">
+                        <ul>
+                            {% if orders.car %}
+                            {% for car in orders.car %}
+                            <li>
+                                <span>
+                                    <i>状态：<span>已提交</span></i>
+                                </span>
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <img src="{{ car.picture }}"/>
+                                    <em>
+                                        <b>{{ car.serbran }}&nbsp;{{ car.ctitle }}</b>
+                                        <br/>
+                                        <span>期望价格：<input type="hidden" name="alterprice" class="alterprice"><strong class="moveto">{{ car.price }}</strong>万</span>
+                                        <br/>
+                                        <span>成交价格：<strong>{{ car.extractprice }}</strong>万</span>
+                                        <br>
+                                        <span>
+                                            <input type="hidden" value="{{ car.id }}" name="carid">
+                                            <input type="hidden" class="conalter" value="确认出价">
+                                        </span>
+                                    </em>
+                                </form>
+                                    <small>
+                                        <a href=""><button class="closeOrder">取消订单</button></a>
+                                        <br/>
+                                        <button class="resetOrder">重新出价+</button>
+                                    </small>
+
+                            </li>
+                                {% endfor %}
+                            {% else %}
+                                <li>
+                                您暂无卖车信息
+                                </li>
+                            {% endif %}
+                        </ul>
+                        </div>
+                    <div style="display: none">
+                        <ul>
+                            <li>
+                                <img src="{% static 'img/bell.png' %}"/>
+                                <b>系统提醒：审核已通过 &nbsp;&nbsp;&nbsp;2017-12-24 12:29</b>
+                                <em>系统提醒：审核已于2017-12-24 12:29通过审核</em>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/bell.png' %}"/>
+                                <b>系统提醒：审核已通过 &nbsp;&nbsp;&nbsp;2017-12-24 12:29</b>
+                                <em>系统提醒：审核已于2017-12-24 12:29通过审核</em>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/bell.png' %}"/>
+                                <b>系统提醒：审核已通过 &nbsp;&nbsp;&nbsp;2017-12-24 12:29</b>
+                                <em>系统提醒：审核已于2017-12-24 12:29通过审核</em>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/bell.png' %}"/>
+                                <b>系统提醒：审核已通过 &nbsp;&nbsp;&nbsp;2017-12-24 12:29</b>
+                                <em>系统提醒：审核已于2017-12-24 12:29通过审核</em>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/bell.png' %}"/>
+                                <b>系统提醒：审核已通过 &nbsp;&nbsp;&nbsp;2017-12-24 12:29</b>
+                                <em>系统提醒：审核已于2017-12-24 12:29通过审核</em>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/bell.png' %}"/>
+                                <b>系统提醒：审核已通过 &nbsp;&nbsp;&nbsp;2017-12-24 12:29</b>
+                                <em>系统提醒：审核已于2017-12-24 12:29通过审核</em>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/bell.png' %}"/>
+                                <b>系统提醒：审核已通过 &nbsp;&nbsp;&nbsp;2017-12-24 12:29</b>
+                                <em>系统提醒：审核已于2017-12-24 12:29通过审核</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block js %}
+    <script src="{% static 'js/jquery-3.2.0.js' %}"></script>
+    <script src="{% static 'js/footer.js' %}"></script>
+    <script src="{% static 'js/header.js' %}"></script>
+        <script>
+        $(function(){
+            $(".remove").on("click","li", function(){
+                var index=$(this).index();
+                $(".info-detail").children(":eq("+index+")").show().siblings().hide();
+            })
+        })
+    </script>
+        <script>
+        $(".change").click(function () {
+            $(".modify").removeAttr("disabled");
+            $(".modify").show();
+        })
+        </script>
+        <script>
+            $(".resetOrder").click(function () {
+                $(".moveto").remove();
+                $(".alterprice").attr("type", "text");
+                $(".conalter").attr("type", "submit");
+            })
+        </script>
+    {% endblock %}
+
+</body>
+</html>
